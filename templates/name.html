@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<html>
+  <head>
+    <title>Display Name</title>
+  </head>
+
+  <body>
+    <form action="/" style="text-align:center" id="form" method="post">
+      <input name="displayname" id="name" placeholder="Enter display name" type="text">
+      <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      let displayname = localStorage.getItem("displayname");
+
+      if (displayname != null) {
+        document.getElementById("name").value = displayname;
+        document.getElementById("form").submit();
+      }
+      else {
+        document.getElementById("form").addEventListener("submit", function() {
+          const name = document.getElementById("name").value;
+          localStorage.setItem("displayname", name);
+          alert(`Your display name is ${name}.`);
+        });
+      }
+    </script>
+  </body>
+</html>

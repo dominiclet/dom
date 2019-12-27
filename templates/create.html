@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<html>
+  <head>
+    <title>Create a channel</title>
+  </head>
+  <body>
+    Hi {{ name }}, what should be your channel name?
+    <form action="/create" method="post">
+      <input autofocus name="channel" type="text" placeholder="Enter channel name">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

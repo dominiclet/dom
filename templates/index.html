@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<html>
+  <head>
+    <title>Channels</title>
+  </head>
+  <body>
+    Your display name is: {{ user }} <br>
+    Here are the channels <br>
+    <table>
+      <tr>
+        <th>Index</th>
+        <th>Channel</th>
+        <th>Created by</th>
+        <th>Created on</th>
+        <th>Join channel</th>
+      <tr>
+      {% for row in channels %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ row['channelname'] }}</td>
+        <td>{{ row['createdby'] }}</td>
+        <td>{{ row['created'] }}</td>
+        <td>
+          <form method="get" action="/chatroom" id="channelinfo">
+            <input type="hidden" name="channelname" id="channelname" value="{{ row['channelname'] }}">
+            <input type="hidden" name="createdby" id="createdby" value="{{ row['createdby'] }}">
+            <input type="hidden" name="created" id="created" value="{{ row['created'] }}">
+            <button type="submit">Join</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="/create">Create a channel</a>
+    <script>
+      var channel = localStorage.getItem("channel");
+      var createdby = localStorage.getItem("createdby");
+      var created = localStorage.getItem("created");
+
+      if ((channel && createdby && created) != null) {
+        document.getElementById("channelname").value = channel;
+        document.getElementById("createdby").value = createdby;
+        document.getElementById("created").value = created;
+        document.getElementById("channelinfo").submit()
+      }
+    </script>
+  </body>
+</html>
