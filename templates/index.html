@@ -1,11 +1,8 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<html lang="en">
-<html>
-  <head>
-    <title>Channels</title>
-  </head>
-  <body>
+{% block title %}Channels{% endblock %}
+
+{% block main %}
     Your display name is: {{ user }} <br>
     Here are the channels <br>
     <table>
@@ -46,5 +43,4 @@
         document.getElementById("channelinfo").submit()
       }
     </script>
-  </body>
-</html>
+{% endblock %}

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<html lang="en">
-<html>
-  <head>
-    <title>Error</title>
-  </head>
-  <body>
+{% block title %}Error{% endblock %}
+
+{% block main %}
     Error: {{ message }}
-  </body>
-</html>
+{% endblock %}
